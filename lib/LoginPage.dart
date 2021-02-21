@@ -51,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
                   padding: EdgeInsets.fromLTRB(20, 20, 20, 5),
                   child: TextField(
                     // controller: _passwordController,
-                    obscureText: true,
+                    obscureText: false,
                     style: TextStyle(fontSize: 14, color: Colors.black),
                     decoration: InputDecoration(
                       // keyboardType: TextInputType.number,
@@ -64,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                           style: BorderStyle.none,
                         ),
                       ),
-                      prefixIcon: Icon(Icons.email),
+                      // prefixIcon: Icon(Icons.email),
                       hintText: "Email",
                       hintStyle: TextStyle(color: Colors.grey.shade800),
                       filled: true,
@@ -89,7 +89,7 @@ class _LoginPageState extends State<LoginPage> {
                           style: BorderStyle.none,
                         ),
                       ),
-                      prefixIcon: Icon(Icons.vpn_key),
+                      // prefixIcon: Icon(Icons.vpn_key),
                       hintText: "Password",
                       hintStyle: TextStyle(color: Colors.grey.shade800),
                       filled: true,

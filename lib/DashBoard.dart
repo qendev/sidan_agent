@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
+  theme: ThemeData(
+  ),
       debugShowCheckedModeBanner: false,
       home: DashBoard(),
     ));
@@ -239,7 +241,11 @@ class _DashBoardState extends State<DashBoard> {
               ),
               Expanded(
                 child: Container(
-                  width: double.infinity,
+
+
+
+
+
                   margin: EdgeInsets.fromLTRB(0, 16, 0, 0),
                   child: DefaultTabController(length: 2, child: Scaffold(
                     appBar:
@@ -248,13 +254,15 @@ class _DashBoardState extends State<DashBoard> {
                         Text('SERVICES SERVED',style: TextStyle(color: Color(0xff006DFF),),)
                       ]),
                     body: TabBarView(children:[
+
                       Text('Notifications'),
                       Text('Services')
 
                     ]),
                     ),
                   ),
-                )),
+                ),
+              ),
               ],
             )
 
