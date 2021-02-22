@@ -3,9 +3,9 @@ import 'package:dropdown_formfield/dropdown_formfield.dart';
 import 'package:sidan_agent/DashBoard.dart';
 
 void main() => runApp(MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: DetailsSignup(),
-    ));
+  debugShowCheckedModeBanner: false,
+  home: DetailsSignup(),
+));
 
 class DetailsSignup extends StatefulWidget {
   @override
@@ -13,6 +13,8 @@ class DetailsSignup extends StatefulWidget {
 }
 
 class _DetailsSignupState extends State<DetailsSignup> {
+  List<String> _locations = ['English', 'Swahili'];
+  String _selectedLocation; // Option 2
   String _myActivity;
   String _myActivityResult;
   final formKey = new GlobalKey<FormState>();
@@ -92,7 +94,7 @@ class _DetailsSignupState extends State<DetailsSignup> {
                           children: <Widget>[
                             SizedBox(
                               width: 140,
-                              height: 24,
+                              height: 50,
                               child: RaisedButton(
                                 color: Colors.yellow[700],
                                 onPressed: () {},
@@ -107,7 +109,7 @@ class _DetailsSignupState extends State<DetailsSignup> {
                               child: CircleAvatar(
                                 radius: 48.0,
                                 backgroundImage:
-                                    AssetImage('assets/profilepic.png'),
+                                AssetImage('assets/user.jpg'),
                               ),
                             ),
                           ],
@@ -167,38 +169,34 @@ class _DetailsSignupState extends State<DetailsSignup> {
                 ),
                 Padding(
                   padding: EdgeInsets.fromLTRB(20, 20, 20, 5),
-                  key: formKey,
                   child: Container(
-                    color: Colors.white,
-                    child: DropDownFormField(
-                      hintText: 'Language',
-                      titleText: 'Choose Language',
-
-                      value: _myActivity,
-                      onSaved: (value) {
-                        setState(() {
-                          _myActivity = value;
-                        });
-                      },
-                      onChanged: (value) {
-                        setState(() {
-                          _myActivity = value;
-                        });
-                      },
-                      dataSource: [
-                        {
-                          "display": "English",
-                          "value": "English",
-                        },
-                        {
-                          "display": "Kiswahili",
-                          "value": "Kiswahili",
-                        },
-                      ],
-                      textField: 'display',
-                      valueField: 'value',
-
-                      // controller: _passwordController,
+                    padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(1)),
+                    child: SizedBox(
+                      width: 295.0,
+                      height: 50.0,
+                      child:
+                      DropdownButtonHideUnderline(
+                        child: DropdownButton(
+                          hint: Text('Select language'), // Not necessary for Option 1
+                          value: _selectedLocation,
+                          onChanged: (newValue) {
+                            setState(() {
+                              _selectedLocation = newValue;
+                            });
+                          },
+                          iconSize: 35.0,
+                          style: TextStyle(color: Colors.blue),
+                          items: _locations.map((location) {
+                            return DropdownMenuItem(
+                              child: new Text(location),
+                              value: location,
+                            );
+                          }).toList(),
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -273,7 +271,7 @@ class _DetailsSignupState extends State<DetailsSignup> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('SIGN UP',
+                          Text('FINISH',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 17.0,
