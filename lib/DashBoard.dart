@@ -16,6 +16,14 @@ class DashBoard extends StatefulWidget {
 }
 
 class _DashBoardState extends State<DashBoard> {
+  int counter = 0;
+  int selectedIndex = 1;
+
+  void ItemTapped(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1492,19 +1500,60 @@ class _DashBoardState extends State<DashBoard> {
                                           )
                                       ),
                                     ],
-                                  )
+                                  ),
+
+
+
                                 ],
                               ),
                             ),
+
                           ],
                         ),
                       ),
+
+
                     ),
+
+
+
+
+
                   ),
                 ),
               ],
+
               )
+
           ),
+
+
+        ),
+      ),
+      bottomNavigationBar: SizedBox(
+        height: 50,
+        child: BottomNavigationBar(
+          backgroundColor: Color(0xff006DFF),
+          unselectedItemColor: Colors.white,
+          type: BottomNavigationBarType.fixed,
+          items: <BottomNavigationBarItem>
+          [
+            BottomNavigationBarItem(icon: Icon(Icons.home, size: 18,),
+              title: new Text(
+                  'Home',
+                  style: TextStyle(color: Colors.white, fontSize: 12.0,)
+              ),
+            ),
+            BottomNavigationBarItem(icon: Icon(Icons.shopping_basket, size: 18,),
+              title: new Text(
+                  'Orders',
+                  style: TextStyle(color: Colors.white, fontSize: 12.0,)
+              ),
+            ),
+          ],
+          currentIndex: selectedIndex,
+          onTap: ItemTapped,
+          fixedColor: Color(0xffFFA451),
         ),
       ),
     );
