@@ -1530,6 +1530,7 @@ class _DashBoardState extends State<DashBoard> {
 
         ),
       ),
+      //bottom navigation for both home and orders
       bottomNavigationBar: SizedBox(
         height: 50,
         child: BottomNavigationBar(
